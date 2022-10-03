@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         etTexto = findViewById(R.id.etTexto);
         btMostrar = findViewById(R.id.btMostrar);
         lvMostrar=findViewById(R.id.lvMostrar);
-        ArrayAdapter adapter=new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1);
+        ArrayAdapter adapter=new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1,arrayList);
 
 
         btMostrar.setOnClickListener(new View.OnClickListener() {
@@ -48,13 +48,14 @@ public class MainActivity extends AppCompatActivity {
                     auxPri = auxPri.getEnlace();
 
 
-                    arrayList.add(resultado);
+
 
                 }
-
+                arrayList.add(resultado);
+                lvMostrar.setAdapter(adapter);
                 etTexto.setText("");
                 adapter.notifyDataSetChanged();
-                lvMostrar.setAdapter(adapter);
+
 
 
                 Log.i("Log",resultado);
