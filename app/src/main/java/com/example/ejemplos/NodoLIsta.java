@@ -1,20 +1,20 @@
 package com.example.ejemplos;
 
 public class NodoLIsta {
-    int dato;
+    String dato;
     NodoLIsta enlace;
 
-    public NodoLIsta(int x)
+    public NodoLIsta(String x)
     {
         dato = x;
         enlace = null;
     }
-    public NodoLIsta(int x, NodoLIsta n)
+    public NodoLIsta(String x, NodoLIsta n)
     {
         dato = x;
         enlace = n;
     }
-    public int getDato()
+    public String getDato()
     {
         return dato;
     }

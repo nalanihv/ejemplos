@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                int aux = Integer.parseInt(etTexto.getText().toString().trim());
+                String aux = etTexto.getText().toString().trim();
                 primero = new NodoLIsta(aux, primero);
                 etTexto.setText("");
 
