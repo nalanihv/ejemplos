@@ -20,11 +20,15 @@
         android:layout_below="@+id/etTexto"
         android:text="Guardar"
         />
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/lvMostrar"
-        android:layout_below="@+id/btMostrar"
+
+    <Button
+        android:id="@+id/btModifica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etTexto"
+        android:text="Arregla"
+        android:layout_alignParentRight="true"
         />
+
 
 </RelativeLayout>

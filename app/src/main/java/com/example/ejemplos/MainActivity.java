@@ -16,24 +16,22 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private EditText etTexto;
-    private Button  btMostrar;
+    private Button  btGuardar;
+    private Button  btModificar;
     private NodoLIsta primero = null;
-    private ListView lvMostrar;
-    private ArrayList<String> arrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        arrayList=new ArrayList<>();
+
         etTexto = findViewById(R.id.etTexto);
-        btMostrar = findViewById(R.id.btMostrar);
-        lvMostrar=findViewById(R.id.lvMostrar);
-        ArrayAdapter adapter=new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1,arrayList);
+        btGuardar = findViewById(R.id.btMostrar);
+        btModificar=findViewById(R.id.btModifica);
+       // ArrayAdapter adapter=new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1,);
 
-
-        btMostrar.setOnClickListener(new View.OnClickListener() {
+        btGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -47,22 +45,45 @@ public class MainActivity extends AppCompatActivity {
                     resultado += auxPri + " -> ";
                     auxPri = auxPri.getEnlace();
 
-
-
-
                 }
-                arrayList.add(resultado);
-                lvMostrar.setAdapter(adapter);
+                //arrayList.add(resultado);
+                //lvMostrar.setAdapter(adapter);
                 etTexto.setText("");
-                adapter.notifyDataSetChanged();
-
-
+                //adapter.notifyDataSetChanged();
 
                 Log.i("Log",resultado);
 
-
             }
 
+        });
+        btModificar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String aux = etTexto.getText().toString().trim();
+                primero = new NodoLIsta(aux, primero);
+                int contador=0;
+                boolean esta = false;
+                NodoLIsta auxPri = primero;
+
+                while (auxPri != null) {
+
+                    contador++;
+
+                    if ( aux.equals(auxPri.getDato())){
+                        esta=true;
+                        Log.i("log","eL NOMBRE SE ENCUENTRA EN LA POSCICION "+contador);
+                        break;
+                    }
+                    auxPri = auxPri.getEnlace();//se actualiza el dato
+
+                }
+
+                if (esta==false)
+                    Log.i("Log","El nombre no se encuentra en la lista ");
+
+
+
+            }
         });
     }
 
