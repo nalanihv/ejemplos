@@ -20,12 +20,15 @@ public class MainActivity extends AppCompatActivity {
     private Button  btModificar;
     private NodoLIsta primero = null;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+/*
         etTexto = findViewById(R.id.etTexto);
         btGuardar = findViewById(R.id.btMostrar);
         btModificar=findViewById(R.id.btModifica);
@@ -84,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             }
-        });
+        });*/
     }
 
 

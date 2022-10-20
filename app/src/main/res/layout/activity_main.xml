@@ -29,6 +29,9 @@
         android:text="Arregla"
         android:layout_alignParentRight="true"
         />
+    <TextView
+        android:layout_width=""
+        android:layout_height=""/>
 
 
 </RelativeLayout>
