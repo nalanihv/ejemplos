@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -17,10 +18,11 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText etTexto;
     private Button  btGuardar;
+    private TextView tvdatos;
     private Button  btModificar;
-    private NodoLIsta primero = null;
+    private Stack stack;
 
-
+    //private NodoLIsta primero = null;
 
 
     @Override
@@ -28,6 +30,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        stack=new Stack();
+
+        tvdatos=findViewById(R.id.tvDatos);
+        etTexto = findViewById(R.id.etTexto);
+        btGuardar = findViewById(R.id.btMostrar);
+        ArrayAdapter adapter=new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1);
+
+
+
+        btGuardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              int   aux = Integer.parseInt(etTexto.getText().toString().trim());
+                etTexto.setText("");
+                stack.Push(aux);
+
+
+                }
+
+        });
+
+
+      //  stack.Pop();
 /*
         etTexto = findViewById(R.id.etTexto);
         btGuardar = findViewById(R.id.btMostrar);
@@ -47,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
                 while (auxPri != null) {
                     resultado += auxPri + " -> ";
                     auxPri = auxPri.getEnlace();
-
                 }
                 //arrayList.add(resultado);
                 //lvMostrar.setAdapter(adapter);
@@ -55,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
                 //adapter.notifyDataSetChanged();
 
                 Log.i("Log",resultado);
-
             }
 
         });
@@ -80,15 +103,11 @@ public class MainActivity extends AppCompatActivity {
                     auxPri = auxPri.getEnlace();//se actualiza el dato
 
                 }
-
                 if (esta==false)
                     Log.i("Log","El nombre no se encuentra en la lista ");
 
-
-
             }
         });*/
-    }
 
-
-}
+        }
+        }
